@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python 3.12.1
       uses: actions/setup-python@v3
       with:
@@ -41,12 +41,12 @@ jobs:
     - name: Test with pytest
       run: |
         pipenv run pytest
-    - name: Short SHA
-      id: short_sha
-      run: echo "SHA=$( git rev-parse --short HEAD )" >> $GITHUB_ENV
+    - name: Name artifact
+      id: name_artifact
+      run: echo "ART_NAME=random-endpoint-${{ github.ref_name }}-$( git rev-parse --short HEAD )" >> $GITHUB_ENV
     - name: Preserve artifact
       if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
       uses: actions/upload-artifact@v4
       with:
-        name: random-endpoint-${{ github.ref_name }}-${{ env.SHA }}
+        name: ${{ env.ART_NAME }}
         path: src/api/random_endpoint.py
