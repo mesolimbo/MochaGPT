@@ -1,15 +1,20 @@
-# Starbucks Drinks Catalog - AWS Project Summary
+# MochaGPT - Starbucks Drinks GPT Action
 
-## Project Overview
-The goal is to create a serverless Python API using AWS services to serve data from Starbucks drinks CSV files. The API will support REST queries and utilize AWS Lambda, Amazon API Gateway, and DynamoDB.
+## Overview
 
-## Steps Accomplished So Far
+This serverless Python API uses AWS services to provide data from a Starbucks drinks table to ChatGPT. The API support GET queries and utilize AWS Lambda, Amazon API Gateway, and DynamoDB.
+
+## Project Details
 
 ### Data Preparation and Loading
-1. **CSV File Analysis**: Analyzed and combined two CSV files containing Starbucks drinks data.
+
+The data for this project came from a kaggle data set:
+https://www.kaggle.com/datasets/starbucks/starbucks-menu
+
+1. **CSV File Analysis**: Analyzed and combined two CSV files containing Starbucks drinks data using ChatGPT.
 2. **Data Cleaning**: Cleaned and merged the data, ensuring consistency across the datasets.
 3. **DynamoDB Preparation**:
-   - Created table StarbucksDrinksCatalog and CloudWatch dashboard
+   - Created table StarbucksDrinksCatalog and CloudWatch dashboard.
    - Chose `BeverageID` (a combination of `Beverage` and `Beverage_prep`) as the primary key.
    - Transformed the data into a format suitable for DynamoDB.
 4. **Data Loading**:
@@ -20,37 +25,25 @@ The goal is to create a serverless Python API using AWS services to serve data f
 - Set up AWS credentials for programmatic access using Boto3.
 - Configured Amazon CloudWatch for monitoring DynamoDB and Lambda functions.
 
-## Next Steps
+### Lambda Function Development
+- Developed an AWS Lambda function in Python to handle API requests.
+- The function is capable of querying DynamoDB to retrieve random beverage data.
+- Set up necessary permissions for Lambda to access DynamoDB.
+- Successfully tested the Lambda function locally.
 
-### 1. Verify Data Integrity
-- Ensure data in DynamoDB matches the original CSV files.
+### Lambda Deployment and API Gateway Integration
+- Deployed the Lambda function to AWS.
+- Created a Lambda URL for direct invocation of the function.
+- Successfully integrated the Lambda function with Amazon API Gateway.
+- Set up an API endpoint (`/random`) to access the Lambda function.
+- Created an OpenAPI definition for the `/random` endpoint.
 
-### 2. Develop Serverless API
-- Create AWS Lambda functions in Python to handle API requests.
-- Implement logic to query DynamoDB and return data.
+## Future Updates
 
-### 3. Set Up API Endpoints
-- Configure endpoints in Amazon API Gateway.
-- Connect API Gateway to Lambda functions.
+### Monitor and Optimize
+- Use CloudWatch to monitor API and Lambda performance.
+- Optimize configurations for efficiency and cost-effectiveness.
 
-### 4. API Testing and Validation
-- Test API functionality and robustness.
-- Implement error handling and edge case scenarios.
-
-### 5. Security and Access Control
-- Secure the API using IAM roles and policies.
-- Implement necessary authentication and authorization.
-
-### 6. Documentation
-- Document API endpoints and usage instructions.
-
-### 7. Monitor and Optimize
-- Use CloudWatch to monitor performance and costs.
-- Optimize Lambda functions for efficiency.
-
-### 8. Future Enhancements
-- Consider features like caching and additional AWS integrations.
-
----
-
-*Note: This document provides a summary of the steps and progress made in the project as of the current date.*
+### Additional Features and Enhancements
+- Consider adding more features to the API based on user feedback.
+- Explore opportunities for scaling and improving the system architecture.

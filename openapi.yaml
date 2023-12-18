@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Starbucks Drinks API
+  version: 1.0.0
+servers:
+  - url: <insrt base API URL here>
+    description: Main API server
+paths:
+  /random:
+    get:
+      summary: Get a facts about a random Starbucks beverage
+      operationId: getRandomBeverage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  BeverageID:
+                    type: string
+                    example: "Caffè Mocha (Without Whipped Cream) - Short Nonfat Milk"
+                  Beverage:
+                    type: string
+                    example: "Caffè Mocha (Without Whipped Cream)"
+                  Beverage_prep:
+                    type: string
+                    example: "Short Nonfat Milk"
+                  Beverage_category:
+                    type: string
+                    example: "Classic Espresso Drinks"
+                  Dietary Fibre (g):
+                    type: string
+                    example: "1"
+                  Total Carbohydrates (g):
+                    type: string
+                    example: "60"
+                  Sodium (mg):
+                    type: string
+                    example: "180"
+                  Caffeine (mg):
+                    type: string
+                    example: "85"
+                  Total Fat (g):
+                    type: string
+                    example: "1.5"
+                  Protein (g):
+                    type: string
+                    example: "7.0"
+                  Calories:
+                    type: string
+                    example: "110"
+                  Sugars (g):
+                    type: string
+                    example: "17.0"
