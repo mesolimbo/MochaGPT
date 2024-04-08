@@ -55,5 +55,7 @@ jobs:
 
     - name: Deploy to AWS Lambda
       run: |
-        zip lambda_function.zip src/api/lambda_function.py
+        cd src/api
+        zip ../../lambda_function.zip lambda_function.py
+        cd ../..
         aws lambda update-function-code --function-name random_starbucks_drink --zip-file fileb://lambda_function.zip
