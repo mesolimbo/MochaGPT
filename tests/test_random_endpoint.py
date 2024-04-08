@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch, MagicMock
 
-from src.api.random_endpoint import lambda_handler, random_item
+from src.api.lambda_function import lambda_handler, random_item
 
 
 class Test(TestCase):

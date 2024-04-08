@@ -1,3 +1,4 @@
+# Auto-deployed from mesolimbo/MochaGPT/src/api/lambda_function.py via GitHub Actions
 import boto3
 import random
 

@@ -1,5 +1,5 @@
 import json
-from random_endpoint import lambda_handler
+from lambda_function import lambda_handler
 
 if __name__ == "__main__":
     # Create a test event
