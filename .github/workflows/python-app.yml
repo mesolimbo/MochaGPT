@@ -61,3 +61,26 @@ jobs:
         zip ../../lambda_function.zip lambda_function.py
         cd ../..
         aws lambda update-function-code --function-name random_starbucks_drink --zip-file fileb://lambda_function.zip
+
+    - name: Create Release
+      id: create_release
+      if: github.ref == 'refs/heads/main'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.sha }}
+        release_name: Release ${{ github.sha }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      if: github.ref == 'refs/heads/main'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./lambda_function.zip
+        asset_name: lambda_function.zip
+        asset_content_type: application/zip
