@@ -7,7 +7,7 @@ name = "pypi"
 boto3 = "1.37.23"
 
 [dev-packages]
-flake8 = "7.1.2"
+flake8 = "7.2.0"
 pytest = "8.3.5"
 
 [requires]
