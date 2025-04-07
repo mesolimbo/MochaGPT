@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-boto3 = "1.37.23"
+boto3 = "1.37.28"
 
 [dev-packages]
 flake8 = "7.2.0"
